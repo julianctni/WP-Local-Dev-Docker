@@ -1,0 +1,24 @@
+version: '3'
+services:
+  php-apache:
+    build:
+      context: ./php-apache
+    ports:
+      - 4000:80
+    volumes:
+      - ./src:/var/www/html
+    links:
+      - 'mariadb'
+  mariadb:
+    image: mariadb:10.1
+    volumes:
+      - mariadb:/var/lib/mysql
+    environment:
+      TZ: "Europe/Berlin"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: "rootpwd"
+      MYSQL_USER: 'output'
+      MYSQL_PASSWORD: 'output'
+      MYSQL_DATABASE: 'output_2019'
+volumes:
+    mariadb:
