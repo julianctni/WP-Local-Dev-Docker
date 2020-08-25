@@ -1,6 +1,4 @@
-# OUTPUT Wordpress Docker 
-
-Docker setup for local development
+# Docker setup for local development
 
 ## Setup
 1. Install docker and docker-compose
